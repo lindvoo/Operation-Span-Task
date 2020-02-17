@@ -20,7 +20,7 @@ import re
 TESTING = 0 # 1 or 0
 
 # Settings
-WHICH_RUN = sys.argv[1] #second argument [example: exp_spider.py run1]
+WHICH_RUN = sys.argv[1] #argument via terminal [example: ospan.py run1]
 REFRESH_RATE = 60  # In Hz
 WINDOW_SIZE = 1280,1040
 frame = 1000 / REFRESH_RATE
@@ -132,13 +132,11 @@ expyriment.control.start(skip_ready_screen=True)
 
 #subject codes 101,201,301 etc are run as 001 [according to the counterbalancing sheet]
 if task.subject < 10:
-    SUBJ_CODE = "MRI_FCWML00" + str(task.subject)
+    SUBJ_CODE = "SUBJ00" + str(task.subject)
 elif task.subject < 100:
-    SUBJ_CODE = "MRI_FCWML0" + str(task.subject)
+    SUBJ_CODE = "SUBJ0" + str(task.subject)
 else:
-    SUBJ_CODE = "MRI_FCWML0" + str(task.subject)[1:]
-    
-    
+    SUBJ_CODE = "SUBJ0" + str(task.subject)[1:]
     
 # DESIGN [experiment/task, blocks, trials, stimuli]
 #------------------------------------------------------------------------------
